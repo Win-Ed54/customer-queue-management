@@ -3,46 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de turnos para atención al cliente</title>
-    <description>Sistema simple de gestion de turnos para atención al cliente</description> 
-    <link rel="stylesheet" href="style.css">
+    <title>Customer Queue Management</title>
+    <meta name="description" content="A simple customer queue management system.">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
+
 <body>
+    <main>
+    <section>
+        <header>
+            <h1>Customer Queue Management</h1>
+            <p>Manage customer tickets with priority and basic statistics.</p>
+        </header>
+    </section>
+
     <div>
-        <form action="/src/app.js" method="post"></form>
+        <form id="ticketForm">
         <ul>
             <li>
-                <label for="CustomerName">Nombre del cliente: </label>
+                <label for="customerName">Name: </label>
                 <input type="text" id="customerName" name="Customer_name" />
             </li>
 
             <li>
-                <label for="ServiceType">Tipo de Servicio: </label>
-                <input list="Service" id="serviceType" name="Service" placeholder="Escribe para buscar: " />
+                <label for="serviceType">Service Type: </label>
+                <input list="Service" id="serviceType" name="Service" placeholder="Select or type a service: " />
                 <datalist id="Service">
-                    <option value="Consulta General">
-                    <option value="Soporte Técnico">
-                    <option value="Facturación">
-                    <option value="Reclamaciones">
-                    <option value="Otros">
+                    <option value="General Inquiry">
+                    <option value="Technical Support">
+                    <option value="Billing">
+                    <option value="Complaints">
+                    <option value="Other">
                 </datalist>
             </li>
+
+            <li>
+                <label for="priority">Priority: </label>
+                <select id="priority" name="Priority">
+                    <option value="Normal">Normal</option>
+                    <option value="Priority">Priority</option>
+                </select>
+            </li>
+
+            <li>
+                <button type="submit">Create Ticket</button>   
+            </li>
         </ul>
+        </form>
     </div>      
-    <p>Prioridad de Cliente</p>
-    <input type="checkbox" id="priorityCustomer" name="priority" value="high">
-    <label for="priorityCustomer">Alta Prioridad</label><br>  
-    <p>Enviar ticket</p>
-    <button type="submit">Enviar</button>
-    <p>Mensajes de Errores</p>
-    <div id="messages"></div>
-    <p>Tickets Pendientes</p>
-    <div id="pendingTickets"></div>
+    </section>
+    <section>
+        <h2>Error Messages</h2>
+        <div id="message">
+        <p>No errors yet.</p>
+        </div>
+    </section>
+
+    <section>
+    <h2>Pending Tickets</h2>
+    <div id="pendingTickets">
+    <p>No pending tickets yet.</p>
+    </div>
+    </section>
+
+    <section>
+        <h2>Ticket History</h2>
+        <div id="ticketHistory">
+        <p>No ticket history yet.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Actions</h2>
+        <button id="attendNextButton" type="button">Attend Next Ticket</button>
+    </section>
     
+    <section>
+        <h2>Statistics</h2>
+        <p>Pending Tickets: <span id="pendingCount">0</span></p>
+        <p>Attended Tickets: <span id="attendedCount">0</span></p>
+        <p>Cancelled Tickets: <span id="cancelledCount">0</span></p>
+        <p>Total Tickets: <span id="totalCount">0</span></p>
+    </section>
 
-
-
+    </main>
+    <script src="src/app.js"></script>
   </body>
-
-
 </html>
