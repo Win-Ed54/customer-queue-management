@@ -54,6 +54,8 @@ function createTicket() {
     status: "Pending",
     createdAt: new Date(),
     attendedAt: null,
+    cancelledAt: null,
+
   };
 
   tickets.push(newTicket);
@@ -91,6 +93,7 @@ function renderPendingTickets() {
       <p><strong>Service:</strong> ${ticket.serviceType}</p>
       <p><strong>Priority:</strong> ${ticket.isPriority ? "Yes" : "No"}</p>
       <p><strong>Status:</strong> ${ticket.status}</p>
+      <p><strong>Created At:</strong> ${formatDate(ticket.createdAt)}</p>
       <button class="btn btn-danger" onclick="cancelTicket(${ticket.id})">
         Cancel
       </button>
@@ -179,6 +182,9 @@ function renderTicketHistory() {
       <p><strong>Service:</strong> ${ticket.serviceType}</p>
       <p><strong>Priority:</strong> ${ticket.isPriority ? "Yes" : "No"}</p>
       <p><strong>Status:</strong> ${ticket.status}</p>
+      <p><strong>Created At:</strong> ${formatDate(ticket.createdAt)}</p>
+      <p><strong>Attended At:</strong> ${formatDate(ticket.attendedAt)}</p>
+      <p><strong>Cancelled At:</strong> ${formatDate(ticket.cancelledAt)}</p>
     `;
 
     ticketHistoryElement.appendChild(historyCard);
@@ -223,6 +229,12 @@ function clearForm() {
   customerNameInput.value = "";
   serviceTypeInput.selectedIndex = 0;
   priorityCustomerInput.checked = false;
+}
+function formatDate(date) {
+    if(!date){
+        return "Not available";
+    }
+    return date.toLocaleString();
 }
 
 // 12. Render the full app
