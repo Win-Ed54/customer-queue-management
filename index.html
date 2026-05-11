@@ -1,92 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">        
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Queue Management</title>
-    <meta name="description" content="A simple customer queue management system.">
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Queue Management</title>
+  <meta name="description" content="A simple customer queue management system.">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-    <main>
-    <section>
-        <header>
-            <h1>Customer Queue Management</h1>
-            <p>Manage customer tickets with priority and basic statistics.</p>
-        </header>
-    </section>
+  <header>
+    <h1>Customer Queue Management</h1>
+    <p>Manage customer tickets with priority and basic statistics.</p>
+  </header>
 
-    <div>
-        <form id="ticketForm">
+  <main>
+    <section>
+      <h2>Register New Ticket</h2>
+
+      <form id="ticketForm">
         <ul>
-            <li>
-                <label for="customerName">Name: </label>
-                <input type="text" id="customerName" name="Customer_name" />
-            </li>
+          <li>
+            <label for="customerName">Name:</label>
+            <input type="text" id="customerName" name="customerName">
+          </li>
 
-            <li>
-                <label for="serviceType">Service Type: </label>
-                <input list="Service" id="serviceType" name="Service" placeholder="Select or type a service: " />
-                <datalist id="Service">
-                    <option value="General Inquiry">
-                    <option value="Technical Support">
-                    <option value="Billing">
-                    <option value="Complaints">
-                    <option value="Other">
-                </datalist>
-            </li>
+          <li>
+            <label for="serviceType">Service Type:</label>
+            <input list="serviceOptions" id="serviceType" name="serviceType" placeholder="Select or type a service">
+            <datalist id="serviceOptions">
+              <option value="General Inquiry">
+              <option value="Technical Support">
+              <option value="Billing">
+              <option value="Complaint">
+              <option value="Other">
+            </datalist>
+          </li>
 
-            <li>
-                <label for="priority">Priority: </label>
-                <select id="priority" name="Priority">
-                    <option value="Normal">Normal</option>
-                    <option value="Priority">Priority</option>
-                </select>
-            </li>
+          <li>
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority">
+              <option value="Normal">Normal</option>
+              <option value="Priority">Priority</option>
+            </select>
+          </li>
 
-            <li>
-                <button type="submit">Create Ticket</button>   
-            </li>
+          <li>
+            <button type="submit">Create Ticket</button>   
+          </li>
         </ul>
-        </form>
-    </div>      
-    </section>
-    <section>
-        <h2>Error Messages</h2>
-        <div id="message">
-        <p>No errors yet.</p>
-        </div>
+      </form>
     </section>
 
     <section>
-    <h2>Pending Tickets</h2>
-    <div id="pendingTickets">
-    <p>No pending tickets yet.</p>
-    </div>
+      <h2>Messages</h2>
+      <div id="message">
+        <p>No messages yet.</p>
+      </div>
     </section>
 
     <section>
-        <h2>Ticket History</h2>
-        <div id="ticketHistory">
+      <h2>Pending Tickets</h2>
+      <div id="pendingTickets">
+        <p>No pending tickets yet.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ticket History</h2>
+      <div id="ticketHistory">
         <p>No ticket history yet.</p>
-        </div>
+      </div>
     </section>
 
     <section>
-        <h2>Actions</h2>
-        <button id="attendNextButton" type="button">Attend Next Ticket</button>
+      <h2>Actions</h2>
+      <button id="attendNextButton" type="button">Attend Next Ticket</button>
     </section>
     
     <section>
-        <h2>Statistics</h2>
-        <p>Pending Tickets: <span id="pendingCount">0</span></p>
-        <p>Attended Tickets: <span id="attendedCount">0</span></p>
-        <p>Cancelled Tickets: <span id="cancelledCount">0</span></p>
-        <p>Total Tickets: <span id="totalCount">0</span></p>
+      <h2>Statistics</h2>
+      <p>Pending Tickets: <span id="pendingCount">0</span></p>
+      <p>Attended Tickets: <span id="attendedCount">0</span></p>
+      <p>Cancelled Tickets: <span id="cancelledCount">0</span></p>
+      <p>Total Tickets: <span id="totalCount">0</span></p>
     </section>
+  </main>
 
-    </main>
-    <script src="src/app.js"></script>
-  </body>
+  <script src="src/app.js"></script>
+</body>
 </html>
